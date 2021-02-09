@@ -1,0 +1,109 @@
+//primary colors
+$Moderate-violet: hsl(263, 55%, 52%);
+$grayish-blue: hsl(217, 19%, 35%);
+$blackish-blue: hsl(219, 29%, 14%);
+//Neutral color
+$light-gray: hsl(0, 0%, 81%);
+$light-blue: hsl(210, 46%, 95%);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    line-height: 1.4;
+    overflow-x: none;
+    font-size: 0.8rem;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    background: $light-blue;
+}
+
+.container {
+    max-width: 1280px;
+    margin: auto;
+    padding: 0 2rem;
+}
+
+#testimonials {
+    margin: 7rem 0;
+    .testimonial-items {
+        display: grid;
+        grid-template-areas: 'one one two three' 'four five five three';
+        grid-gap: 2rem;
+        &>div {
+            border-radius: 10px;
+            padding: 2rem;
+            color: #fff;
+            box-shadow: 5px 5px 10px $light-gray;
+            h2 {
+                line-height: 1.2;
+                font-size: 1.1rem;
+                margin-top: 1rem;
+            }
+            blockquote {
+                opacity: 70%;
+                margin: 1rem 0;
+                font-weight: 500;
+                font: 1rem;
+            }
+            cite {
+                display: flex;
+                align-items: center;
+                font-style: normal;
+                img {
+                    border-radius: 50%;
+                    width: 30px;
+                    margin-right: 1rem;
+                    border: 2px solid rgba(255, 255, 255, 0.50);
+                }
+                p {
+                    opacity: .5;
+                }
+            }
+        }
+        &>div:first-child {
+            grid-area: one;
+            background-color: $Moderate-violet;
+            position: relative;
+            .back {
+                position: absolute;
+                top: 0;
+                right: 4rem;
+                mix-blend-mode: screen;
+                opacity: .5;
+            }
+        }
+        &>div:nth-child(3) {
+            grid-area: three;
+            color: $grayish-blue;
+            background-color: #fff;
+            height: unset;
+        }
+        &>div:nth-child(2) {
+            grid-area: two;
+            background-color: $grayish-blue;
+        }
+        &>:nth-child(4) {
+            grid-area: four;
+            color: $grayish-blue;
+            background-color: #fff;
+        }
+        &>div:last-child {
+            grid-area: five;
+            background-color: $blackish-blue;
+            img {
+                border-color: $Moderate-violet;
+            }
+        }
+    }
+}
+
+@media screen and(max-width: 960px) {
+    #testimonials {
+        margin-top: 4rem;
+        .testimonial-items {
+            grid-template-areas: 'one' 'two' 'four' 'five' 'three';
+        }
+    }
+}
